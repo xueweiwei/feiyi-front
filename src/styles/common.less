@@ -1,0 +1,142 @@
+#app, body, html{
+    height: 100%;
+}
+body{
+    background-color: @background-color-base;
+    font-size: 14pt;
+}
+
+//flex布局
+.c-flex {
+    display: flex;
+	flex-direction: row;
+	align-items: center;
+}
+.c-flex-wrap {
+    flex-wrap: wrap;
+}
+.c-flex-nowrap {
+    flex-wrap: nowrap;
+}
+.c-col-top {
+    align-items: flex-start;
+}
+.c-col-center {
+    align-items: center;
+}
+.c-col-bottom {
+    align-items: flex-end;
+}
+.c-row-left {
+    justify-content: flex-start;
+}
+.c-row-center {
+    justify-content: center;
+}
+.c-row-right {
+    justify-content: flex-end;
+}
+.c-row-between {
+    justify-content: space-between;
+}
+.c-row-around {
+    justify-content: space-around;
+}
+
+//外间距
+.margin(@i) when (@i =< 100) {
+    .c-margin-top-@{i} {
+        margin-top: @i + 0px;
+    }
+    .c-margin-bottom-@{i} {
+        margin-bottom: @i + 0px;
+    }
+    .c-margin-left-@{i} {
+        margin-left: @i + 0px;
+    }
+    .c-margin-right-@{i} {
+        margin-right: @i + 0px;
+    }
+    .margin(@i + 1);
+}
+.margin(0);
+
+//内间距
+.padding(@i) when (@i =< 100) {
+    .c-padding-top-@{i} {
+        padding-top: @i + 0px;
+    }
+    .c-padding-bottom-@{i} {
+        padding-bottom: @i + 0px;
+    }
+    .c-padding-left-@{i} {
+        padding-left: @i + 0px;
+    }
+    .c-padding-right-@{i} {
+        padding-right: @i + 0px;
+    }
+    .padding(@i + 1);
+}
+.padding(0);
+
+// 隐藏滚动条样式
+.i-scrollbar-hide{
+    &::-webkit-scrollbar{
+        width: 0;
+    }
+    &::-webkit-scrollbar-track{
+        background-color: transparent;
+    }
+    &::-webkit-scrollbar-thumb{
+        background: #e8eaec;
+    }
+}
+
+// 极简滚动条样式
+.i-scrollbar{
+    &::-webkit-scrollbar{
+        width: 6px;
+    }
+    &::-webkit-scrollbar-track{
+        background-color: transparent;
+    }
+    &::-webkit-scrollbar-thumb{
+        background: #808695;
+        border-radius: 4px;
+    }
+}
+
+// 去除 Table 的左右边框，更精简
+.i-table-no-border{
+    .ivu-table th{
+        background-color: #fff;
+    }
+    .ivu-table-wrapper, .ivu-table tr:last-child td{
+        border: none;
+    }
+    .ivu-table:before, .ivu-table:after{
+        display: none;
+    }
+}
+
+//抽屉底部按钮区域
+.c-drawer-footer {
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    border-top: 1px solid #e8e8e8;
+    padding: 10px 16px;
+    text-align: right;
+    background: #fff;
+}
+
+//显示框
+.c-select-input {
+  width: 100%;
+  background-color: #ffffff;
+  border: 1px solid #dcdee2;
+  border-radius: 3px;
+  padding: 0 10px;
+  cursor: pointer;
+}
