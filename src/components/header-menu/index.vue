@@ -43,7 +43,7 @@
             }
         },
         methods: {
-            handleSelectMenu(val) {
+            handleSelectMenu (val) {
                 window.location.href = ('/' + val)
             }
         }

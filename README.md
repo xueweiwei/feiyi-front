@@ -10,9 +10,8 @@ vue
 
 #### 安装教程
 
-1.  在项目根目录下，
-2.  xxxx
-3.  xxxx
+1.  在项目根目录下，执行npm install
+2.  运行项目：npm run dev
 
 
 

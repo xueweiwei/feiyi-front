@@ -2,50 +2,61 @@
     <Layout class="i-layout" :style="{'width': deviceWidth}">
         <Header></Header>
         <Content class="content">
-            <Row>
-                <Col span="24" class="header">
-                    <div class="header-menu">
-                        <div class="header-menu-item" v-for="(item, index) in menuList" :key="index">
-                            <div class="header-menu-item-text" :class="{'header-menu-item-text-selected': currentMenu == item.name}" @click="handleSelectMenu(item)">{{item.title}}</div>
-                            <div class="header-menu-item-splitline" v-if="index < menuList.length-1"></div>
-                        </div>
-                    </div>
-                </Col>
-            </Row>
-           <Row>
-               <Col :xs="24" :sm="24" :md="24" :lg="24">
-                   
-                </Col>
-            </Row>
+         <div class="user-box">
+			 <div>
+				<Menu :active-name="currentMenu" v-if="!isMobile" ref="menu" theme="light" @on-select="handleSelectMenu" class="user-menu">
+				    <div class="menu-header">
+						<img src="../../assets/images/user/user-menu-top-left.png" />
+						<img src="../../assets/images/user/user-menu-top-right.png" />
+					</div>
+					<div class="menu-avatar">
+						<img src="../../assets/images/user/avatar.png" style="width: 100%;" />
+					</div>
+					<MenuItem v-for="(item, index) in menuList" :name="item.name" :key="index">
+				        {{item.title}}
+				    </MenuItem>
+				</Menu>
+				<img src="../../assets/images/user/user-bottom.png" width="240px" />
+			</div>
+
+         </div>
         </Content>
         <Footer></Footer>
     </Layout>
 </template>
 
 <script>
+import { mapState } from 'vuex';
     import Header from '@/components/header';
     import Footer from '@/components/footer';
     import mixinCommon from '@/mixin/common.vue';
-   
+
     export default {
-        components: { Header, Footer},
+        components: { Header, Footer },
         mixins: [mixinCommon],
-        data() {
+		computed: {
+			...mapState(['isMobile'])
+		},
+        data () {
             return {
-                currentMenu: 'news',
+                currentMenu: 'index',
                 menuList: [
-                    { name: 'news', title: '非遗新闻1' },
-                    { name: 'activity', title: '非遗活动' },
-                    { name: 'mice', title: '会展资讯' },
-                    { name: 'policy', title: '政策法规' },
-                    { name: 'other', title: '其他资讯' }
+                    { name: 'index', title: '我的账户' },
+                    { name: 'expressLine', title: '我的订单' },
+                    { name: 'page2', title: '我的点赞' },
+                    { name: 'page4', title: '我的发布' },
+                    { name: 'page3', title: '消息通知' },
+                    { name: 'page5', title: '历史记录' },
+                    { name: 'page6', title: '个人资料' },
+                    { name: 'page7', title: '修改密码' },
+                    { name: 'page8', title: '等级成长' }
                 ]
             }
         },
         methods: {
-            //选择菜单
-            handleSelectMenu(val) {
-                this.currentMenu = val.name;
+            // 选择菜单
+            handleSelectMenu (val) {
+                window.location.href = ('/' + val)
             }
         }
     }
@@ -56,32 +67,20 @@
         background-image: url('../../assets/images/expressLine/shading2.jpg');
         width: 100%;
         padding: 0 360px 0 360px;
-        .header {
-            display: flex;
-            justify-content: flex-end;
-            padding: 40px 0;
-            font-size: 0.8rem;
-            &-menu {
-                display: flex;
-                align-items: center;
-                &-item {
-                    display: flex;
-                    align-items: center;
-                    &-text {
-                        cursor: pointer;
-                        padding: 3px 10px;
-                        &-selected {
-                            color: #5c0100;
-                        }
-                    }
-                    &-splitline {
-                        margin: 0 10px;
-                        height: 1rem;
-                        width: 2px;
-                        background-color: #808695;
-                    }
-                }
-            }
-        }
+		.user-box{
+			margin: 50px 0;
+			display: flex;
+			.user-menu{
+				.menu-header{
+					display: flex;
+					justify-content:space-between
+				}
+				.menu-avatar{
+					padding: 20px 30px;
+					display: flex;
+					justify-content:space-between
+				}
+			}
+		}
     }
 </style>

@@ -15,7 +15,8 @@
     &-horizontal{
         height: 60px;
         line-height: 60px;
-
+		display: flex;
+		justify-content: flex-end;
         &.@{menu-prefix-cls}-light{
             &:after{
                 content: '';
@@ -36,7 +37,7 @@
                 display: block;
                 width: 1px;
                 height: 100%;
-                background: @border-color-base;
+                // background: @border-color-base;
                 position: absolute;
                 top: 0;
                 bottom: 0;
@@ -102,6 +103,33 @@
             background-image: url('../../../../../assets/images/header-menu-active.jpg');
         }
     }
+	
+	
+	&-light&-vertical &-item, &-light&-vertical &-submenu{
+	    height: inherit;
+	    line-height: inherit;
+	    border-bottom: 2px solid transparent;
+	    color: @text-color;
+		text-align: center;
+	    &-active{
+	        color: #FFF!important;
+	        font-weight: bold;
+	        //border-bottom: 2px solid @primary-color;
+			background-size: 100% 100% !important;
+	        background: url('../../../../../assets/images/user/user-menu-bg.png') no-repeat !important;	
+				
+		}
+		&-active::after{
+			width:0px !important;
+			background: #FFF !important;
+		}
+	}
+	&-light&-vertical &-item, &-light&-vertical &-submenu{
+	    color: #515a6e;
+	    &:hover{
+	        color: #515a6e !important;
+	    }
+	}
 
     &-dark&-horizontal &-item, &-dark&-horizontal &-submenu{
         color: @menu-dark-subsidiary-color;
