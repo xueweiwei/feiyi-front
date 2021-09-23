@@ -64,24 +64,26 @@
 					<div class="value">1717****@qq.com</div>
 				</div>
 			</div>
+			<div class="person-box-right">
+				<img :src="avatar" style="width: 100px; height: 100px; margin-bottom: 16px;" />
+				<Button>修改头像</Button>
+				<div class="tip">支持jpg、jpeg、png格式的图片</div>
+			</div>
 		</div>
-		<Divider></Divider>
+		
 	</div>
 </template>
 
 <script>
 import contentLeftImg from '@/assets/images/user/user-content-left.png';
-import heartImg from '@/assets/images/user/heart.png';
-import publishImg from '@/assets/images/user/publish.png';
-import feedbackImg from '@/assets/images/user/feedback.png';
+import avatar from '@/assets/images/user/avatar.png';
+
 
 export default {
 	data() {
 		return {
 			contentLeftImg: contentLeftImg,
-			heartImg: heartImg,
-			publishImg: publishImg,
-			feedbackImg: feedbackImg
+			avatar: avatar,
 		};
 	},
 	methods: {}
@@ -99,6 +101,7 @@ export default {
 	}
 	.person-box {
 		display: flex;
+		justify-content: space-between;
 		.person-box-left {
 			display: flex;
 			flex-direction: column;
@@ -112,6 +115,18 @@ export default {
 					width: 80px;
 					font-weight: 500;
 				}
+			}
+		}
+		.person-box-right{
+			display: flex;
+			align-items: center;
+			flex-direction: column;
+			border-left: 1px solid #D2D2D2;
+			padding:0 80px;
+			.tip{
+				color: #004638;
+				font-size: 14px;
+				margin-top: 12px;
 			}
 		}
 	}
