@@ -29,6 +29,9 @@ Vue.component('DropdownItem', Iview.DropdownItem);
 Vue.component('Page', Iview.Page);
 Vue.component('Divider', Iview.Divider);
 Vue.component('Button', Iview.Button);
+Vue.component('Form', Iview.Form);
+Vue.component('FormItem', Iview.FormItem);
+Vue.component('Input', Iview.Input);
 
 
 

@@ -17,6 +17,7 @@
 				<div class="user-content">
 					<index v-if="currentMenu=='index'"></index>
 					<account v-if="currentMenu=='account'"></account>
+					<password v-if="currentMenu=='password'"></password>
 				</div>
 			</div>
 		</Content>
@@ -31,9 +32,10 @@ import Footer from '@/components/footer';
 import mixinCommon from '@/mixin/common.vue';
 import index from './index/index';
 import account from './account/index';
+import password from './password/index';
 
 export default {
-	components: { Header, Footer, index, account },
+	components: { Header, Footer, index, account, password },
 	mixins: [mixinCommon],
 	computed: {
 		...mapState(['isMobile'])
@@ -49,7 +51,7 @@ export default {
 				{ name: 'page3', title: '消息通知' },
 				{ name: 'page5', title: '历史记录' },
 				{ name: 'info', title: '个人资料' },
-				{ name: 'updatePass', title: '修改密码' },
+				{ name: 'password', title: '修改密码' },
 				{ name: 'grade', title: '等级成长' }
 			]
 		};
